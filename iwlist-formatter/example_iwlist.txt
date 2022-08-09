@@ -1,0 +1,95 @@
+eth0      Scan completed :
+          Cell 01 - Address: 0C:54:15:1C:2C:8A
+                    ESSID:"hotspot"
+                    Protocol:IEEE 802.11bgn
+                    Mode:Master
+                    Frequency:2.412 GHz (Channel 1)
+                    Encryption key:on
+                    Bit Rates:144 Mb/s
+                    Extra:rsn_ie=301c0100000fac040100000fac040300000fac02000fac06000fac080c00
+                    IE: IEEE 802.11i/WPA2 Version 1
+                        Group Cipher : CCMP
+                        Pairwise Ciphers (1) : CCMP
+                        Authentication Suites (3) : PSK unknown (6) unknown (8)
+                    IE: Unknown: DD5C0050F204104A0001101044000102103B000103104700105D9670EB614F5D408F9D32AC1D84AF71102100012010230001201024000120104200012010540008000000000000000010110001201008000231481049000600372A000120
+                    Quality=80/100  Signal level=100/100  
+                    Extra:fm=0003
+          Cell 02 - Address: 00:28:F8:9F:7A:95
+                    ESSID:"no password hotspot"
+                    Protocol:IEEE 802.11bgn
+                    Mode:Master
+                    Frequency:2.412 GHz (Channel 1)
+                    Encryption key:off
+                    Bit Rates:144 Mb/s
+                    IE: Unknown: DD5C0050F204104A0001101044000102103B00010310470010A6842F6F1A5A5F44A6AFC87DE8C2689B102100012010230001201024000120104200012010540008000000000000000010110001201008000231481049000600372A000120
+                    Quality=100/100  Signal level=59/100  
+                    Extra:fm=0003
+          Cell 03 - Address: 98:DA:C4:9D:6A:9D
+                    ESSID:"dragonn_EXT"
+                    Protocol:IEEE 802.11bgn
+                    Mode:Master
+                    Frequency:2.412 GHz (Channel 1)
+                    Encryption key:on
+                    Bit Rates:300 Mb/s
+                    Extra:wpa_ie=dd1a0050f20101000050f20202000050f2020050f20401000050f202
+                    IE: WPA Version 1
+                        Group Cipher : TKIP
+                        Pairwise Ciphers (2) : TKIP CCMP
+                        Authentication Suites (1) : PSK
+                    Extra:
+                    IE: IEEE 802.11i/WPA2 Version 1
+                        Group Cipher : TKIP
+                        Pairwise Ciphers (2) : TKIP CCMP
+                        Authentication Suites (1) : PSK
+                    Quality=84/100  Signal level=67/100  
+                    Extra:fm=0003
+          Cell 04 - Address: D4:CA:6D:D0:8D:0D
+                    ESSID:"dragonn"
+                    Protocol:IEEE 802.11bgn
+                    Mode:Master
+                    Frequency:2.412 GHz (Channel 1)
+                    Encryption key:on
+                    Bit Rates:300 Mb/s
+                    Extra:wpa_ie=dd160050f20101000050f20401000050f20401000050f202
+                    IE: WPA Version 1
+                        Group Cipher : CCMP
+                        Pairwise Ciphers (1) : CCMP
+                        Authentication Suites (1) : PSK
+                    Extra:
+                    IE: IEEE 802.11i/WPA2 Version 1
+                        Group Cipher : CCMP
+                        Pairwise Ciphers (1) : CCMP
+                        Authentication Suites (1) : PSK
+                    IE: Unknown: DD270050F204104A00011010440001021047001000000000000000000000D4CA6DD08D08103C000101
+                    Quality=100/100  Signal level=47/100  
+                    Extra:fm=0001
+          Cell 05 - Address: 60:E3:27:24:80:A6
+                    ESSID:"dragonn2"
+                    Protocol:IEEE 802.11bgn
+                    Mode:Master
+                    Frequency:2.417 GHz (Channel 2)
+                    Encryption key:on
+                    Bit Rates:300 Mb/s
+                    Extra:wpa_ie=dd160050f20101000050f20401000050f20401000050f202
+                    IE: WPA Version 1
+                        Group Cipher : CCMP
+                        Pairwise Ciphers (1) : CCMP
+                        Authentication Suites (1) : PSK
+                    Quality=0/100  Signal level=46/100  
+                    Extra:fm=0001
+          Cell 06 - Address: C8:D7:19:BA:59:DB
+                    ESSID:"dragonn_vr"
+                    Protocol:IEEE 802.11bgn
+                    Mode:Master
+                    Frequency:2.462 GHz (Channel 11)
+                    Encryption key:on
+                    Bit Rates:300 Mb/s
+                    Extra:rsn_ie=30180100000fac020200000fac04000fac020100000fac020c00
+                    IE: IEEE 802.11i/WPA2 Version 1
+                        Group Cipher : TKIP
+                        Pairwise Ciphers (2) : CCMP TKIP
+                        Authentication Suites (1) : PSK
+                    IE: Unknown: DD780050F204104A00011010440001021041000100103B000103104700103F10083D2C18D3FC3153971E64F411EA102100074C696E6B737973102300075741473332304E10240005313233343510420004313233341054000800060050F20400011011000F4C494E4B5359532D5741473332304E100800020088
+                    Quality=36/100  Signal level=58/100  
+                    Extra:fm=0003
+
