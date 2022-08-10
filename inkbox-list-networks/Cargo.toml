@@ -1,5 +1,5 @@
 [package]
-name = "iwlist-formatter"
+name = "inkbox-list-networks"
 version = "0.1.0"
 edition = "2021"
 
@@ -7,3 +7,10 @@ edition = "2021"
 
 [dependencies]
 regex = "1.6.0"
+
+[profile.release]
+strip = true
+opt-level = "z"
+lto = true
+codegen-units = 1
+panic = "abort"   # remove this for some debug info
