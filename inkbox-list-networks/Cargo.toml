@@ -8,6 +8,11 @@ edition = "2021"
 [dependencies]
 regex = "1.6.0"
 
+[profile.release.package."*"]
+strip = true
+opt-level = "z"
+codegen-units = 1
+
 [profile.release]
 strip = true
 opt-level = "z"

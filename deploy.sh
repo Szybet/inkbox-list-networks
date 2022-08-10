@@ -1,7 +1,9 @@
 #!/bin/bash
 
 cd inkbox-list-networks
-~/.cargo/bin/cross build --release --target armv7-unknown-linux-musleabihf
+~/.cargo/bin/cross +nightly build -Z build-std=std,panic_abort -Z build-std-features=panic_immediate_abort --release --target armv7-unknown-linux-musleabihf
+
+upx --best --lzma target/armv7-unknown-linux-musleabihf/release/inkbox-list-networks
 
 servername="root@10.42.0.28"
 passwd="root"
