@@ -5,7 +5,7 @@ use crate::iwlist_wrapper::iwlist_scan;
 use crate::wlarm_le_wrapper::wlarm_le_scan;
 
 use std::fs;
-use std::process::{exit, Command};
+use std::process::Command;
 use std::{thread, time};
 
 /*
