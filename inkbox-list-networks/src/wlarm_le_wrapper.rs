@@ -8,7 +8,7 @@ pub fn wlarm_le_scan() {
     let output = Command::new("wlarm_le")
     .arg("escanresults")
     .output()
-    .expect("failed to execute iwlist");
+    .expect("failed to execute wlarm_le");
 
     let output_data = str::from_utf8(&output.stdout).expect("Failed to get stdout").to_owned();
 
