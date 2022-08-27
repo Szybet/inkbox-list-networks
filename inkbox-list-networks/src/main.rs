@@ -30,7 +30,7 @@ fn main() {
     //exit(0);
 
     let model =
-        fs::read_to_string("/opt/inkbox_device").expect("Something went wrong reading the file");
+        fs::read_to_string("/opt/inkbox_device").expect("Something went wrong reading the file").replace("\n", "");
 
     //println!("model is: {}", model);
     /* 
