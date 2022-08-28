@@ -5,8 +5,6 @@ use crate::iwlist_wrapper::iwlist_scan;
 use crate::wlarm_le_wrapper::wlarm_le_scan;
 
 use std::fs;
-use std::process::Command;
-use std::{thread, time};
 
 /*
 /run/wifi_list_full - unformatted output of the main command, so the user can view it
@@ -30,7 +28,7 @@ fn main() {
     //exit(0);
 
     let model =
-        fs::read_to_string("/opt/inkbox_device").expect("Something went wrong reading the file").replace("\n", "");
+        fs::read_to_string("/opt/inkbox_device").expect("Something went wrong reading the file").replace('\n', "");
 
     //println!("model is: {}", model);
     /* 

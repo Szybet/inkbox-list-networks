@@ -1,0 +1,36 @@
+SSID: "SentFromMyToaster-EXT"
+Mode: Managed   RSSI: -76 dBm   SNR: 0 dB       noise: -92 dBm  Flags: RSSI on-channel  Channel: 1
+BSSID: 00:1C:F0:F5:FA:0E        Capability: ESS WEP ShortPre ShortSlot 
+Supported Rates: [ 1(b) 2(b) 5.5(b) 11(b) 6 9 12 18 24 36 48 54 ]
+WPA:
+        multicast cipher: TKIP
+        unicast ciphers(2): TKIP AES-CCMP 
+        AKM Suites(1): WPA-PSK 
+        No WPA Capabilities advertised
+RSN:
+        multicast cipher: TKIP
+        unicast ciphers(2): TKIP AES-CCMP 
+        AKM Suites(1): WPA-PSK 
+        Capabilities(0x0000): No Pre-Auth, Pairwise, 1 PTK Replay Ctr1 GTK Replay Ctr
+802.11N Capable:
+        Chanspec: 2.4GHz channel 1 20MHz (0x2b01)
+        Control channel: 1
+        802.11N Capabilities: SGI40 
+        Supported MCS : [ 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 ]
+
+SSID: "SentFromMyToaster"
+Mode: Managed   RSSI: -83 dBm   SNR: 0 dB       noise: -92 dBm  Flags: FromBcn RSSI on-channel  Channel: 11
+BSSID: B8:EC:A3:D4:09:20        Capability: ESS WEP ShortPre ShortSlot 
+Supported Rates: [ 1(b) 2(b) 5.5(b) 11(b) 6 9 12 18 24 36 48 54 ]
+RSN:
+        multicast cipher: AES-CCMP
+        unicast ciphers(1): AES-CCMP 
+        AKM Suites(1): WPA-PSK 
+        Capabilities(0x0000): No Pre-Auth, Pairwise, 1 PTK Replay Ctr1 GTK Replay Ctr
+802.11N Capable:
+        Chanspec: 2.4GHz channel 11 20MHz (0x2b0b)
+        Control channel: 11
+        802.11N Capabilities: SGI20 
+        Supported MCS : [ 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 96 ]
+
+kobo:~#

@@ -18,7 +18,7 @@ pub fn iwlist_scan() {
     //output_data =
     //   fs::read_to_string("/iwlist_data").expect("Something went wrong reading the file");
 
-    let sliced_data = output_data.split("\n");
+    let sliced_data = output_data.split('\n');
 
     let mut main_data: String = String::new();
     let mac_regex =
@@ -38,17 +38,17 @@ pub fn iwlist_scan() {
     for data_chunk in sliced_data {
         if data_chunk.contains("- Address: ") {
             // because order can be random, first check if something is to be printed
-            if saved_mac.is_empty() == false
-                || saved_essid.is_empty() == false
-                || saved_encryption.is_empty() == false
-                || saved_signal_level.is_empty() == false
+            if !saved_mac.is_empty()
+                || !saved_essid.is_empty()
+                || !saved_encryption.is_empty()
+                || !saved_signal_level.is_empty()
             {
                 main_data.push_str(&saved_mac);
                 main_data.push_str(&saved_essid);
                 main_data.push_str(&saved_encryption);
                 main_data.push_str(&saved_signal_level);
                 main_data.push_str("%%==SPLIT==%%"); // next wifi network
-                main_data.push_str("\n");
+                main_data.push('\n');
 
                 saved_mac = "".to_owned();
                 saved_essid = "".to_owned();
@@ -59,7 +59,7 @@ pub fn iwlist_scan() {
             let pure_mac: String = mac_regex.replace_all(data_chunk, "").to_string();
             //println!("pure mac is: \"{}\"", pure_mac);
             saved_mac.push_str(&pure_mac);
-            saved_mac.push_str("\n");
+            saved_mac.push('\n');
             continue;
         }
         if data_chunk.contains("ESSID:") {
@@ -73,7 +73,7 @@ pub fn iwlist_scan() {
 
             //println!("pure essid is: \"{}\" ", pure_essid);
             saved_essid.push_str(&pure_essid);
-            saved_essid.push_str("\n");
+            saved_essid.push('\n');
             continue;
         }
         if data_chunk.contains("Encryption key:") {
@@ -83,35 +83,35 @@ pub fn iwlist_scan() {
             if data_chunk.contains("key:off") {
                 saved_encryption.push_str("false");
             }
-            saved_encryption.push_str("\n");
+            saved_encryption.push('\n');
             continue;
         }
-        if data_chunk.contains("Signal level") == true && data_chunk.contains("Quality") == true {
+        if data_chunk.contains("Signal level") && data_chunk.contains("Quality") {
             // one possibility: Quality:2/5  Signal level:-71 dBm  Noise level:-92 dBm
             // second?: Quality=36/100  Signal level=58/100
             let signal = signal_regex.replace_all(data_chunk, "").to_string();
             let mut pure_signal: String = signal.split_at(3).0.to_string();
-            pure_signal = pure_signal.replace("/", "");
-            pure_signal = pure_signal.replace(" ", "");
+            pure_signal = pure_signal.replace('/', "");
+            pure_signal = pure_signal.replace(' ', "");
             
             //println!("pure signal: \"{}\"", pure_signal);
             saved_signal_level.push_str(&pure_signal);
-            saved_signal_level.push_str("\n");
+            saved_signal_level.push('\n');
             continue;
         }
     }
     // Lets also save the last wifi network, because after it no "Address: " exists
-    if saved_mac.is_empty() == false
-        || saved_essid.is_empty() == false
-        || saved_encryption.is_empty() == false
-        || saved_signal_level.is_empty() == false
+    if !saved_mac.is_empty()
+        || !saved_essid.is_empty()
+        || !saved_encryption.is_empty()
+        || !saved_signal_level.is_empty()
     {
         main_data.push_str(&saved_mac);
         main_data.push_str(&saved_essid);
         main_data.push_str(&saved_encryption);
         main_data.push_str(&saved_signal_level);
         main_data.push_str("%%==SPLIT==%%"); // next wifi network
-        main_data.push_str("\n");
+        main_data.push('\n');
     }
     //println!("main data is: \n{}", main_data);
 

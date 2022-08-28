@@ -30,38 +30,37 @@ pub fn wlarm_le_scan() {
     let mut saved_rssi: String = String::new();
     
     for data_chunk in sliced_data {
-        if data_chunk.contains("SSID: ") == true && data_chunk.contains("BSSID: ") == false {
+        if data_chunk.contains("SSID: ") && !data_chunk.contains("BSSID: ") {
             let mut pure_ssid: String = data_chunk.to_string();
             pure_ssid.pop();
-            for num in 0..7 {
+            for _ in 0..7 {
                 pure_ssid.remove(0);
             }
-            if pure_ssid.is_empty() == true {
+            if pure_ssid.is_empty() {
                 continue;
             }
             //println!("pure_ssid is: \"{}\"", pure_ssid);
             saved_ssid = "".to_owned();
             saved_ssid.push_str(&pure_ssid);
-            saved_ssid.push_str("\n");
+            saved_ssid.push('\n');
             continue;
         }
-        if data_chunk.contains("RSSI") == true {
-            let mut pure_rssi: String = String::new();
+        if data_chunk.contains("RSSI") {
             let rssi: String = rssi_regex.replace_all(data_chunk, "").to_string();
             let splitted_rssi = rssi.split_at(2);
-            pure_rssi = splitted_rssi.0.to_owned();
+            let pure_rssi = splitted_rssi.0.to_owned();
             saved_rssi = "".to_owned();
             if rssi.is_empty() || rssi.chars().count() < 4 {
                 //println!("rssi is weird or to low: {}", rssi);
-                saved_rssi.push_str("0");
+                saved_rssi.push('0');
             } else {
                 //println!("pure_rssi is: {}", pure_rssi);
                 saved_rssi.push_str(&pure_rssi);
             }
-            saved_rssi.push_str("\n");
+            saved_rssi.push('\n');
             continue;
         }
-        if data_chunk.contains("BSSID: ") == true {
+        if data_chunk.contains("BSSID: ") {
             let mut pure_mac: String = String::new();
             for cap in mac_regex.captures_iter(data_chunk) {
                 pure_mac = cap[0].to_owned();
@@ -69,28 +68,29 @@ pub fn wlarm_le_scan() {
             //println!("pure mac is: {}", pure_mac);
             saved_mac = "".to_owned();
             saved_mac.push_str(&pure_mac);
-            saved_mac.push_str("\n");
+            saved_mac.push('\n');
             continue;
         }
         if data_chunk.contains("Supported Rates: ") {
             encryption_is_next = true;
             continue;
         }
-        if encryption_is_next == true {
+        if encryption_is_next {
             encryption_is_next = false;
-            let mut encryption: String = String::new();
-            if data_chunk.contains("RSN:") == true {
-                encryption = "true".to_owned();
+            
+            let encryption: String = if data_chunk.contains("RSN:") || data_chunk.contains("WPA:") {
+                "true".to_owned()
             } else {
-                encryption = "false".to_owned();
-            }
+                "false".to_owned()
+            };
+            
             main_data.push_str(&saved_mac);
             main_data.push_str(&saved_ssid);
             main_data.push_str(&encryption);
-            main_data.push_str("\n");
+            main_data.push('\n');
             main_data.push_str(&saved_rssi);
             main_data.push_str("%%==SPLIT==%%"); // next wifi network
-            main_data.push_str("\n");
+            main_data.push('\n');
         }
     }
     //println!("main_data is: \n{}", main_data);
