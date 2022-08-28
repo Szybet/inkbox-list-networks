@@ -71,7 +71,7 @@ pub fn wlarm_le_scan() {
             saved_mac.push('\n');
             continue;
         }
-        if data_chunk.contains("Supported Rates: ") {
+        if data_chunk.contains("Supported Rates:") {
             encryption_is_next = true;
             continue;
         }
