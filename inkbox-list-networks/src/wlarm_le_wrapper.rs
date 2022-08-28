@@ -5,10 +5,18 @@ use std::str;
 
 pub fn wlarm_le_scan() {
     //println!("wlarm_le wrapper");
+
+    // Because Glo HD is finicky in every possible way
+    Command::new("ifconfig")
+        .arg("wlan0")
+        .arg("up")
+        .output()
+        .expect("failed to execute ifconfig");
+
     let output = Command::new("wlarm_le")
-    .arg("escanresults")
-    .output()
-    .expect("failed to execute wlarm_le");
+        .arg("escanresults")
+        .output()
+        .expect("failed to execute wlarm_le");
 
     let output_data = str::from_utf8(&output.stdout).expect("Failed to get stdout").to_owned();
 
