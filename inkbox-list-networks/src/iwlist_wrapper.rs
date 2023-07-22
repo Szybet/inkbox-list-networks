@@ -3,9 +3,14 @@ use std::fs;
 use std::process::Command;
 use std::str;
 
-pub fn iwlist_scan() {
+pub fn iwlist_scan(use_different_interface_name: bool) {
+    let mut interface_name = "eth0";
+    if use_different_interface_name {
+        interface_name = "wlan0";
+    }
+
     let output = Command::new("iwlist")
-        .arg("eth0")
+        .arg(interface_name)
         .arg("scanning")
         .output()
         .expect("failed to execute iwlist");

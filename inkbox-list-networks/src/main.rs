@@ -38,10 +38,11 @@ fn main() {
     .expect("failed to execute iwlist");
     */
     
-    if model == "n437"
-    {
+    if model == "n437" {
         wlarm_le_scan();
+    } else if model == "n249" {
+        iwlist_scan(true);
     } else {
-        iwlist_scan();
+        iwlist_scan(false);
     }
 }
